@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "dev": "parcel src/index.html",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

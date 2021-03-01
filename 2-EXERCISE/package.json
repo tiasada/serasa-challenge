@@ -1,0 +1,14 @@
+{
+  "name": "2-exercise",
+  "version": "1.0.0",
+  "description": "2 - Refactoring/Bug + Logica beaseado num enunciado (Ex. Score/Perfil Serasa): - Score Turbo;",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}

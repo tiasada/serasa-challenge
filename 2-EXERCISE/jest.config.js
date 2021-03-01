@@ -2,8 +2,6 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
-  preset: 'ts-jest',
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

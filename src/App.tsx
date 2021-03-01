@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
+import Page from './components/Page'
 
 function App () {
   return (
-    <h1>Testando</h1>
+    <Page />
   )
 }
 
