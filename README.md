@@ -9,3 +9,7 @@
 
     cd 2-EXERCISE
     npm test
+
+## exercicio 3:
+
+    npm run dev

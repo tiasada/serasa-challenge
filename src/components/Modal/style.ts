@@ -5,7 +5,7 @@ type Props = {
 }
 
 const Mdl = styled.div<Props>`
-  display: ${({ open }) => open ? 'block' : 'none'};
+  display: ${({ open }) => open ? 'flex' : 'none'};
   position: fixed;
   z-index: 1;
   left: 0;
@@ -33,7 +33,7 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
 `
-export const Exit = styled.h1`
+export const Exit = styled.span`
   &:hover {
     color: black;
     text-decoration: none;
