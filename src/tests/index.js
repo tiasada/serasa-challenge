@@ -1,33 +1,36 @@
-function User(score, hasBoost = true) {
-  const history = []
-
-  this.setScore = function (score) {
+class User {
+  constructor (score, hasBoost = true){
+    this.score = score;
+    this.hasBoost = hasBoost;
+    this.history = []
+  }
+  setScore = function (score) {
     this.score = score
   }
 
-  this.setDebts = function (debts) {
+  setDebts = function (debts) {
     this.debts = debts
   }
 
-  this.acceptOffer = () => {
+  acceptOffer = () => {
     // Pagou sua negociação
     this.debts -= 1
-    history.push({
+    this.history.push({
       status: 'accept'
     })
   }
 
-  this.brokenOffer = () => {
+  brokenOffer = () => {
     // Quebrou algum acordo por nao ter pago a dívida ou apareceu mais uma negativaçāo no seu CPF
     this.debts += 1
-    history.push({
+    this.history.push({
       status: 'broken'
     })
   }
 
-  this.getScore = function () {
+  getScore = function () {
     let boost = this.statusBoost()
-
+    let score = this.score
     let boostMessage = ''
     let boostValue = null
     if (boost[1] != null) {
@@ -56,11 +59,12 @@ function User(score, hasBoost = true) {
     }
   }
 
-  this.checkBoost = function () {
-    if (!hasBoost) {
+  checkBoost = function () {
+    if (!this.hasBoost) {
       // Verifica se ele possui o Turbo
       return undefined
     }
+    let score = this.score
 
     let maxBoost = score < 500 ? score * 0.2 : score < 800 ? score * 0.05 : score * 0.03
     let available = maxBoost
@@ -68,12 +72,12 @@ function User(score, hasBoost = true) {
     let pending = 0
     let complete = 0
 
-    if (history.find(h => h.status === 'broken')) {
+    if (this.history.find(h => h.status === 'broken')) {
       // Caso o consumidor tenha alguma quebra de acordo / alguma divida ele perde o Turbo do Score
       available = null
       lost = maxBoost
-    } else if (history.find(h => h.status === 'accept')) {
-      let debtsPaid = history.filter(h => h.status === 'accept').length
+    } else if (this.history.find(h => h.status === 'accept')) {
+      let debtsPaid = this.history.filter(h => h.status === 'accept').length
       if (0 === this.debts) {
         // Caso o consumidor tenha pago todas suas dividas, ele tem um boost completo e ativo!
         available = 0
@@ -93,7 +97,7 @@ function User(score, hasBoost = true) {
     }
   }
 
-  this.statusBoost = function () {
+  statusBoost = function () {
     let boost = this.checkBoost()
     /*
     1 = Disponivel
