@@ -2,7 +2,7 @@ import React from 'react'
 import { Colors, colors } from './theme/colors'
 import { BodyM, Display, HeadingL, HeadingM, HeadingS, HeadingXS, StyledProps, Subheading } from './TypographyStyles'
 
-type Variants = 'Display' | 'HeadingL' | 'HeadingM' | 'HeadingS' | 'HeadingXS' | 'Subheading' | 'BodyM' 
+type Variants = 'Display' | 'HeadingL' | 'HeadingM' | 'HeadingS' | 'HeadingXS' | 'Subheading' | 'BodyM'
 
 export type Props = {
   children: React.ReactNode
@@ -21,11 +21,11 @@ const variants: Record<Variants, React.FunctionComponent<StyledProps>> = {
   BodyM: BodyM
 }
 
-const Typography = ({ children, color = 'dark-high', variant = 'BodyM', bold= false, ...rest }: Props) => {
+const Typography = ({ children, color = 'dark-high', variant = 'BodyM', bold = false, ...rest }: Props) => {
   const Component = variants[variant]
 
   return (
-    <Component color={colors[color]}>
+    <Component bold={bold} color={colors[color]}>
       {children}
     </Component>
   )

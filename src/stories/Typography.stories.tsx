@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import Typography, { Props } from './Typography'
@@ -7,61 +7,58 @@ export default {
   title: 'Typograpgy',
   component: Typography,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as Meta
 
 const Template: Story<Props> = (args) => <Typography {...args} />
 
-
-export const Display = Template.bind({});
+export const Display = Template.bind({})
 Display.args = {
   variant: 'Display',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const HeadingL = Template.bind({});
+export const HeadingL = Template.bind({})
 HeadingL.args = {
   variant: 'HeadingL',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const HeadingM = Template.bind({});
+export const HeadingM = Template.bind({})
 HeadingM.args = {
   variant: 'HeadingM',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const HeadingS = Template.bind({});
+export const HeadingS = Template.bind({})
 HeadingS.args = {
   variant: 'HeadingS',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const HeadingXS = Template.bind({});
+export const HeadingXS = Template.bind({})
 HeadingXS.args = {
   variant: 'HeadingXS',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const Subheading = Template.bind({});
+export const Subheading = Template.bind({})
 Subheading.args = {
   variant: 'Subheading',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const BodyM = Template.bind({});
+export const BodyM = Template.bind({})
 BodyM.args = {
   variant: 'BodyM',
-  children: 'Button',
+  children: 'Button'
 }
 
-export const BodyMBold = Template.bind({});
+export const BodyMBold = Template.bind({})
 BodyMBold.args = {
   variant: 'BodyM',
   children: 'Button',
-  bold: true,
-  
+  bold: true
+
 }
-
-

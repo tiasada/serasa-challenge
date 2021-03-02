@@ -3,7 +3,7 @@ import React, { FormEvent, useState } from 'react'
 import Button from '../Button'
 import StyleForm, { Group, Input, Label, Rate, Rating, SubmitButton, Text, Error } from './styles'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 import { post } from '/api'
 
 type Props = {
@@ -19,41 +19,37 @@ const Form = ({ onClose }: Props) => {
   const body = { name, rate, message }
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-
     event.preventDefault()
-    if(rate === 0)
-    {
+    if (rate === 0) {
       setShowError(true)
-    }
-    else
-    {
+    } else {
       post(body)
-      .then(() =>
-      toast.success('Obrigado por nos enviar esse feedback!', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      })
-      )
-      .catch(() =>
-        toast.error('Erro ao enviar feedback!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        })
+        .then(() =>
+          toast.success('Obrigado por nos enviar esse feedback!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
         )
-        onClose()
-        setName('')
-        setRate(0)
-        setMessage('')
+        .catch(() =>
+          toast.error('Erro ao enviar feedback!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
+        )
+      onClose()
+      setName('')
+      setRate(0)
+      setMessage('')
     }
   }
   return (
@@ -73,35 +69,35 @@ const Form = ({ onClose }: Props) => {
           onClick={() => setRate(5)}
           id='5'
           icon={faStar}
-          rated={rate>= 5}
+          rated={rate >= 5}
           size='2x'
         />
         <Rate
           onClick={() => setRate(4)}
           id='4'
           icon={faStar}
-          rated={rate>= 4}
+          rated={rate >= 4}
           size='2x'
         />
         <Rate
           onClick={() => setRate(3)}
           id='3'
           icon={faStar}
-          rated={rate>= 3}
+          rated={rate >= 3}
           size='2x'
         />
         <Rate
           onClick={() => setRate(2)}
           id='2'
           icon={faStar}
-          rated={rate>= 2}
+          rated={rate >= 2}
           size='2x'
         />
         <Rate
           onClick={() => setRate(1)}
           id='1'
           icon={faStar}
-          rated={rate>= 1}
+          rated={rate >= 1}
           size='2x'
         />
       </Rating>

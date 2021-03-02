@@ -5,14 +5,15 @@ type Prop ={
   open: boolean
   children: React.ReactNode
   onClose: () => void
+  title: string
 }
 
-const Modal = ({ open, onClose, children }: Prop) => (
+const Modal = ({ open, onClose, children, title }: Prop) => (
   <StyleModal open={open} >
     <Overlay onClick={onClose}/>
     <Content>
     <Exit onClick={onClose}>&times;</Exit>
-    <ModalTitle>Deixa seu feedback</ModalTitle>
+    <ModalTitle>{title}</ModalTitle>
       {children}
     </Content>
   </StyleModal>

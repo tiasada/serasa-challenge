@@ -6,7 +6,10 @@
     "test": "jest",
     "dev": "parcel src/index.html",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "eslint src/**/*.ts{,x}",
+    "compile": "tsc --build",
+    "quality": "npm run lint && npm run compile"
   },
   "keywords": [],
   "author": "",
@@ -14,16 +17,16 @@
   "dependencies": {
     "parcel-bundler": "^1.12.4",
     "react": "^17.0.1",
+    "axios": "^0.21.1",
     "react-dom": "^17.0.1",
     "react-toastify": "^7.0.3",
-    "styled-components": "^5.2.1",
-    "jest": "^26.4.2"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@babel/core": "^7.13.8",
     "@storybook/addon-actions": "^6.1.20",
     "@storybook/addon-essentials": "^6.1.20",
     "@storybook/addon-links": "^6.1.20",
@@ -34,9 +37,17 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/styled-components": "^5.1.7",
-    "axios": "^0.21.1",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
     "babel-loader": "^8.2.2",
     "core-js": "^3.9.0",
+    "eslint": "^7.21.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^26.4.2",
     "typescript": "^4.2.2"
   },
   "description": ""

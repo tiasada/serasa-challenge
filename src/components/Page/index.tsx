@@ -6,15 +6,12 @@ import GlobalStyle from '/globalStyle'
 
 const Page = () => {
   const [modal, setModal] = useState(false)
-  const CloseModal = () => {
-    setModal(false)
-  }
   return (
     <>
       <GlobalStyle />
       <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100vh' }}>
         <Button onClick={() => setModal(true)}>Open Modal</Button>
-        <Modal open={modal} onClose={CloseModal}>
+        <Modal title='Deixe seu feedback' open={modal} onClose={() => setModal(false)}>
           <Form onClose={() => setModal(false)} />
         </Modal>
       </div>

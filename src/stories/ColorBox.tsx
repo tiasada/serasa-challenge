@@ -8,7 +8,6 @@ export type Props = {
   background?: boolean
 }
 
-
 const ColorBox = ({ children, color = 'dark-high', background, ...rest }: Props) => {
   return (
     <Background background={background}>

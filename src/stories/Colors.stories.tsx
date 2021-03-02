@@ -1,50 +1,50 @@
-import React, { Children } from 'react'
+import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import ColorBox, { Props } from './ColorBox'
 
 export default {
   title: 'Colors',
-  component: ColorBox,
+  component: ColorBox
 } as Meta
 
 const Template: Story<Props> = (args) => <ColorBox {...args} />
 
-export const DarkHigh = Template.bind({});
+export const DarkHigh = Template.bind({})
 DarkHigh.args = {
   color: 'dark-high',
-  children: 'Dark High',
-  
+  children: 'Dark High'
+
 }
 
-export const DarkMedium = Template.bind({});
+export const DarkMedium = Template.bind({})
 DarkMedium.args = {
   color: 'dark-medium',
-  children: 'Dark Medium',
+  children: 'Dark Medium'
 }
 
-export const DarkLow = Template.bind({});
+export const DarkLow = Template.bind({})
 DarkLow.args = {
   color: 'dark-low',
-  children: 'Dark Low',
+  children: 'Dark Low'
 }
 
-export const Magenta = Template.bind({});
+export const Magenta = Template.bind({})
 Magenta.args = {
   color: 'magenta',
-  children: 'Magenta',
+  children: 'Magenta'
 }
 
-export const LightHigh = Template.bind({});
+export const LightHigh = Template.bind({})
 LightHigh.args = {
   background: true,
   color: 'light-high',
-  children: 'Light High',
+  children: 'Light High'
 }
 
-export const LightSolid = Template.bind({});
+export const LightSolid = Template.bind({})
 LightSolid.args = {
   background: true,
   color: 'light-solid',
-  children: 'Light Solid',
+  children: 'Light Solid'
 }
