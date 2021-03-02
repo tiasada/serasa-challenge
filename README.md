@@ -7,7 +7,6 @@
 
 ## exercicio 2:
 
-    cd 2-EXERCISE
     npm test
 
 ## exercicio 3:

@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export type StyledProps = {
   color: string
 }
+export type Props = {
+  background?: boolean
+}
 
 export const Box = styled.div<StyledProps>`
   width: 125px;
@@ -13,13 +16,12 @@ export const Box = styled.div<StyledProps>`
   text-align: center;
   background-color: ${({ color }) => color};
 `
-export const Background = styled.div`
+export const Background = styled.div<Props>`
   width: 140px;
   height: 150px;
   border-radius: 6px;
   text-align: center;
-  color: white;
   align-items: center;
   justify-items: center;
-  background-color: #292929;
+  background-color: ${({ background }) => background ? 'gray' : 'none'};
 `

@@ -12,7 +12,6 @@ const Template: Story<Props> = (args) => <ColorBox {...args} />
 
 export const DarkHigh = Template.bind({});
 DarkHigh.args = {
-  
   color: 'dark-high',
   children: 'Dark High',
   
@@ -38,12 +37,14 @@ Magenta.args = {
 
 export const LightHigh = Template.bind({});
 LightHigh.args = {
+  background: true,
   color: 'light-high',
   children: 'Light High',
 }
 
 export const LightSolid = Template.bind({});
 LightSolid.args = {
+  background: true,
   color: 'light-solid',
   children: 'Light Solid',
 }

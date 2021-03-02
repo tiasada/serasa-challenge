@@ -61,6 +61,7 @@ const Form = ({ onClose }: Props) => {
       <Group>
         <Label>Seu nome:(opcional)</Label>
         <Input
+          id='name'
           type='text'
           value={name}
           onChange={e => setName(e.target.value)}
