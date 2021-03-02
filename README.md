@@ -12,3 +12,5 @@
 ## exercicio 3:
 
     npm run dev
+## exercicio 4: 
+### está no arquivo DELIVERY.md
