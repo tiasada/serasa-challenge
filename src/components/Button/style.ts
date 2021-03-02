@@ -1,7 +1,8 @@
-import Styled from 'styled-components'
+import Styled, { css } from 'styled-components'
+import { desktop, tablet } from '/theme'
 
 const Btn = Styled.button`
-  width: 256px;
+  width: 100vh;
   height: 48px;
   border-radius: 10px;
   padding: 0;
@@ -15,6 +16,13 @@ const Btn = Styled.button`
   &:hover {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     border: 2px solid #CC196B;
+    cursor: pointer;
   }
+  ${tablet(css`
+    width: 256px;
+  `)}
+  ${desktop(css`
+    width: 256px;
+  `)}
 `
 export default Btn

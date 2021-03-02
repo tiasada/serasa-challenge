@@ -1,46 +1,72 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { group } from 'console'
-import { defaultCipherList } from 'constants'
 import React, { FormEvent, useState } from 'react'
 import Button from '../Button'
-import Frm, { Group, Inp, Lbl, Rate, Rating, SubBtn, Txt } from './styles'
+import StyleForm, { Group, Input, Label, Rate, Rating, SubmitButton, Text, Error } from './styles'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { post } from '/api'
 
 type Props = {
   onClose: () => void
 }
 
+toast.configure()
 const Form = ({ onClose }: Props) => {
   const [name, setName] = useState('')
   const [rate, setRate] = useState(0)
   const [message, setMessage] = useState('')
+  const [showError, setShowError] = useState(false)
   const body = { name, rate, message }
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    fetch('https://5f4b11f341cb390016de37aa.mockapi.io/api/v1/feedback',
-      {
-        method: 'POST',
-        body: JSON.stringify(body)
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        console.log(data);
-      })
 
-    onClose()
+    event.preventDefault()
+    if(rate === 0)
+    {
+      setShowError(true)
+    }
+    else
+    {
+      post(body)
+      .then(() =>
+      toast.success('Obrigado por nos enviar esse feedback!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      })
+      )
+      .catch(() =>
+        toast.error('Erro ao enviar feedback!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        })
+        )
+        onClose()
+        setName('')
+        setRate(0)
+        setMessage('')
+    }
   }
   return (
-    <Frm onSubmit={onSubmit}>
+    <StyleForm onSubmit={onSubmit}>
       <Group>
-        <Lbl>Seu nome:</Lbl>
-        <Inp
+        <Label>Seu nome:(opcional)</Label>
+        <Input
           type='text'
           value={name}
           onChange={e => setName(e.target.value)}
         />
       </Group>
-      <Lbl>Sua nota:</Lbl>
+      <Label>Sua nota:</Label>
       <Rating>
         <Rate
           onClick={() => setRate(5)}
@@ -78,17 +104,18 @@ const Form = ({ onClose }: Props) => {
           size='2x'
         />
       </Rating>
+      <Error show={showError}>É necessário avaliar </Error>
       <Group>
-        <Lbl>Sua mensagem:</Lbl>
-        <Txt
+        <Label>Sua mensagem:(opcional)</Label>
+        <Text
           value={message}
           onChange={e => setMessage(e.target.value)}
         />
       </Group>
-      <SubBtn>
+      <SubmitButton>
         <Button type='submit'>Enviar</Button>
-      </SubBtn>
-    </Frm>
+      </SubmitButton>
+    </StyleForm>
   )
 }
 export default Form

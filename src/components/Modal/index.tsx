@@ -1,5 +1,5 @@
 import React from 'react'
-import Mdl, { Content, Exit, MdlTitle, Overlay } from './style'
+import StyleModal, { Content, Exit, ModalTitle, Overlay } from './style'
 
 type Prop ={
   open: boolean
@@ -8,13 +8,13 @@ type Prop ={
 }
 
 const Modal = ({ open, onClose, children }: Prop) => (
-  <Mdl open={open} >
+  <StyleModal open={open} >
     <Overlay onClick={onClose}/>
     <Content>
     <Exit onClick={onClose}>&times;</Exit>
-    <MdlTitle>Deixa seu feedback</MdlTitle>
+    <ModalTitle>Deixa seu feedback</ModalTitle>
       {children}
     </Content>
-  </Mdl>
+  </StyleModal>
 )
 export default Modal
